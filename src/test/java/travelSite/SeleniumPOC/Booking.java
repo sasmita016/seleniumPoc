@@ -113,7 +113,7 @@ public class Booking {
 	@Test(dependsOnMethods="search")
 	public void searchPageLoad() {
 		System.out.println("Search Results are displayed");
-		WebElement pickup = driver.findElement(By.xpath("//div[@class='ab-SearchSummary_PickUp-headline']"));
+		WebElement pickup = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ab-SearchSummary_PickUp-headline']"))));		
 		Assert.assertEquals(pickup.isDisplayed(), true);				
 	}
 	
