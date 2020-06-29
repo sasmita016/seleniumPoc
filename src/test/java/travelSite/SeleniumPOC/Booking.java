@@ -97,7 +97,7 @@ public class Booking {
 		WebElement driveTo = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.id("ss"))));	
 		driveTo.click();
 		driveTo.sendKeys("Rome");
-		WebElement firstOpt1 = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Rome')]"))));		
+		WebElement firstOpt1 = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Rome - Leonardo Da Vinci (Fiumicino)')]"))));		
 		firstOpt1.click();		
 	}
 	
