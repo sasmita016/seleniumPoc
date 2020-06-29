@@ -86,7 +86,7 @@ public class Booking {
 		WebElement driveFrom = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='ss_origin']"))));	
 		driveFrom.click();
 		driveFrom.sendKeys("Goa"); 		
-		WebElement firstOpt = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'California')]"))));	
+		WebElement firstOpt = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Goa')]"))));	
 		firstOpt.click();
 	
 	}
@@ -97,7 +97,7 @@ public class Booking {
 		WebElement driveTo = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.id("ss"))));	
 		driveTo.click();
 		driveTo.sendKeys("Delhi");
-		WebElement firstOpt1 = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Nevada')]"))));		
+		WebElement firstOpt1 = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Delhi')]"))));		
 		firstOpt1.click();		
 	}
 	
