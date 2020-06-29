@@ -1,0 +1,94 @@
+package travelSite.SeleniumPOC;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+
+public class Booking {
+	
+	WebDriver driver;
+	WebDriverWait wait;
+			
+	@BeforeClass 
+	public void init() {
+		System.setProperty("webdriver.chrome.driver",".\\drivers\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	}
+	
+	@Test(priority=0)
+	public void launchURL()  {
+		System.out.println("Test launchURL");
+		driver.get("https://www.booking.com/");	
+	}
+	
+	@Test(dependsOnMethods="launchURL")
+	public void carRentals() {
+		System.out.println("Test Vacation");
+		WebElement vacation = driver.findElement(By.xpath("//span[contains(text(),'Car Rentals')]"));	
+		vacation.click();
+		}
+	
+	@Test(dependsOnMethods="carRentals")
+		public void selectTripType() throws InterruptedException {	
+		System.out.println("Enter Trip Type : One Way or Round");
+		WebElement tripType = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[contains(text(),'Return to different location')]"))));
+		tripType.click();
+
+	}
+	
+	@Test(dependsOnMethods="selectTripType")
+	public void selectDriveFromAddress() {
+		
+		System.out.println("Enter address of the city where to Drive from");
+
+		WebElement driveFrom = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='ss_origin']"))));	
+		driveFrom.click();
+		driveFrom.sendKeys("California"); 		
+		WebElement firstOpt = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'California')]"))));	
+		firstOpt.click();
+	
+	}
+	
+	@Test(dependsOnMethods="selectDriveFromAddress")
+	public void selectDriveToAddress() {
+		System.out.println("Enter address of the city where to Drive to ");
+		WebElement driveTo = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='ss']"))));	
+		driveTo.click();
+		driveTo.sendKeys("Nevada");
+		WebElement firstOpt1 = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Nevada')]"))));		
+		firstOpt1.click();		
+	}
+	
+	
+	@Test(dependsOnMethods="selectDriveToAddress")
+	public void search() {
+        
+        WebElement searchButton = driver.findElement(By.xpath("//span[contains(text(),'Search')]"));
+        searchButton.click();
+	}
+	
+	
+	@Test(dependsOnMethods="search")
+	public void searchPageLoad() {
+		System.out.println("Search Results are displayed");
+		WebElement pickup = driver.findElement(By.xpath("//div[@class='ab-SearchSummary_PickUp-headline']"));
+		Assert.assertEquals(pickup.isDisplayed(), true);				
+	}
+	
+	@AfterClass
+	public void tearDown() {
+		System.out.println("Shutting down the Driver");
+		driver.quit();
+	}
+	
+}
