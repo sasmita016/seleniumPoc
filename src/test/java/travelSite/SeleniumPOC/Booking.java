@@ -49,7 +49,7 @@ public class Booking {
 		
 		else if(prop.getProperty("browser").equalsIgnoreCase("linux")) 
 		{
-			System.setProperty("webdriver.chrome.driver",".\\drivers\\linux\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","drivers/linux/chromedriver.exe");
 			driver = new ChromeDriver();
 			
 		}
