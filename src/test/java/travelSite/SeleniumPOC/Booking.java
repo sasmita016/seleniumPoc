@@ -85,7 +85,7 @@ public class Booking {
 
 		WebElement driveFrom = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='ss_origin']"))));	
 		driveFrom.click();
-		driveFrom.sendKeys("California"); 		
+		driveFrom.sendKeys("Goa"); 		
 		WebElement firstOpt = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'California')]"))));	
 		firstOpt.click();
 	
@@ -96,7 +96,7 @@ public class Booking {
 		System.out.println("Enter address of the city where to Drive to ");
 		WebElement driveTo = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.id("ss"))));	
 		driveTo.click();
-		driveTo.sendKeys("Nevada");
+		driveTo.sendKeys("Delhi");
 		WebElement firstOpt1 = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Nevada')]"))));		
 		firstOpt1.click();		
 	}
