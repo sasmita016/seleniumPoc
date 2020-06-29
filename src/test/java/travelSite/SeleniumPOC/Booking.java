@@ -31,28 +31,32 @@ public class Booking {
 		
 		String operatingSysName = prop.getProperty("opertingSystem");
 		System.out.println(operatingSysName);
-		System.out.println("opertingSystem"+opertingSystem);
+		System.setProperty("opertingSystem","linux");
+		System.out.println(opertingSystem);
+		System.setProperty("webdriver.chrome.driver","/var/lib/jenkins/workspace/selenium_poc/drivers/linux/chromedriver.exe");
+ 		System.out.println(webdriver.chrome.driver);
+		driver = new ChromeDriver();
 		
 		
-		if(prop.getProperty("opertingSystem").equalsIgnoreCase("windows")) 
-		{
-			//ChromeDriver
-			System.setProperty("webdriver.chrome.driver",".\\drivers\\windows\\chromedriver.exe");
-			driver = new ChromeDriver();
+// 		if(prop.getProperty("opertingSystem").equalsIgnoreCase("windows")) 
+// 		{
+// 			//ChromeDriver
+// 			System.setProperty("webdriver.chrome.driver",".\\drivers\\windows\\chromedriver.exe");
+// 			driver = new ChromeDriver();
 			
 			
-		}else if(prop.getProperty("opertingSystem").equalsIgnoreCase("mac")) 
-		{
-			System.setProperty("webdriver.chrome.driver",".\\drivers\\mac\\chromedriver.exe");
-			driver = new ChromeDriver();
+// 		}else if(prop.getProperty("opertingSystem").equalsIgnoreCase("mac")) 
+// 		{
+// 			System.setProperty("webdriver.chrome.driver",".\\drivers\\mac\\chromedriver.exe");
+// 			driver = new ChromeDriver();
 			
-		}
-		else if(prop.getProperty("browser").equalsIgnoreCase("linux")) 
-		{
-			System.setProperty("webdriver.chrome.driver","/var/lib/jenkins/workspace/selenium_poc/drivers/linux/chromedriver.exe");
-			driver = new ChromeDriver();
+// 		}
+// 		else if(prop.getProperty("browser").equalsIgnoreCase("linux")) 
+// 		{
+// 			System.setProperty("webdriver.chrome.driver","/var/lib/jenkins/workspace/selenium_poc/drivers/linux/chromedriver.exe");
+// 			driver = new ChromeDriver();
 			
-		}
+// 		}
 		driver.manage().window().maximize();
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
