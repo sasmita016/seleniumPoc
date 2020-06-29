@@ -31,6 +31,7 @@ public class Booking {
 		
 		String operatingSysName = prop.getProperty("opertingSystem");
 		System.out.println(operatingSysName);
+		System.out.println("opertingSystem"+opertingSystem);
 		
 		
 		if(prop.getProperty("opertingSystem").equalsIgnoreCase("windows")) 
