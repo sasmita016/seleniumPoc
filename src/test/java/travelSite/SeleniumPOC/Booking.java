@@ -1,5 +1,9 @@
 package travelSite.SeleniumPOC;
 
+import java.io.FileInputStream;
+
+import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,11 +20,39 @@ public class Booking {
 	
 	WebDriver driver;
 	WebDriverWait wait;
+	public Properties prop;
+	
 			
 	@BeforeClass 
-	public void init() {
-		System.setProperty("webdriver.chrome.driver",".\\drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
+	public void init() throws Exception {
+		prop = new Properties();
+		FileInputStream fis = new FileInputStream(".\\config.properties");
+		prop.load(fis);
+		
+		String operatingSysName = prop.getProperty("opertingSystem");
+		System.out.println(operatingSysName);
+		
+		
+		if(prop.getProperty("opertingSystem").equalsIgnoreCase("windows")) 
+		{
+			//ChromeDriver
+			System.setProperty("webdriver.chrome.driver",".\\drivers\\windows\\chromedriver.exe");
+			driver = new ChromeDriver();
+			
+			
+		}else if(prop.getProperty("opertingSystem").equalsIgnoreCase("mac")) 
+		{
+			System.setProperty("webdriver.chrome.driver",".\\drivers\\mac\\chromedriver.exe");
+			driver = new ChromeDriver();
+			
+		}
+		
+		else if(prop.getProperty("browser").equalsIgnoreCase("linux")) 
+		{
+			System.setProperty("webdriver.chrome.driver",".\\drivers\\linux\\chromedriver.exe");
+			driver = new ChromeDriver();
+			
+		}
 		driver.manage().window().maximize();
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
