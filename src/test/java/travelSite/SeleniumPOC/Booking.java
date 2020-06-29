@@ -94,7 +94,7 @@ public class Booking {
 	@Test(dependsOnMethods="selectDriveFromAddress")
 	public void selectDriveToAddress() {
 		System.out.println("Enter address of the city where to Drive to ");
-		WebElement driveTo = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='ss']"))));	
+		WebElement driveTo = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.id("ss"))));	
 		driveTo.click();
 		driveTo.sendKeys("Nevada");
 		WebElement firstOpt1 = (new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Nevada')]"))));		
