@@ -26,7 +26,7 @@ public class Booking {
 	@BeforeClass 
 	public void init() throws Exception {
 		prop = new Properties();
-		FileInputStream fis = new FileInputStream(".\\config.properties");
+		FileInputStream fis = new FileInputStream("config.properties");
 		prop.load(fis);
 		
 		String operatingSysName = prop.getProperty("opertingSystem");
