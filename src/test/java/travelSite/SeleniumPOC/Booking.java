@@ -124,4 +124,3 @@ public class Booking {
 	}
 	
 }
-© 2020 GitHub, Inc.
