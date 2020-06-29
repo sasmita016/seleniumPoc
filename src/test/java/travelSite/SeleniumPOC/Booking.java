@@ -42,7 +42,7 @@ public class Booking {
 			
 		}else if(prop.getProperty("opertingSystem").equalsIgnoreCase("mac")) 
 		{
-			System.setProperty("webdriver.chrome.driver","./drivers/mac/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","drivers/mac/chromedriver.exe");
 			driver = new ChromeDriver();
 			
 		}
