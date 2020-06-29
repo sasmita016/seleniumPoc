@@ -46,7 +46,6 @@ public class Booking {
 			driver = new ChromeDriver();
 			
 		}
-		print("Print properties",prop.getProperty("browser"));
 		else if(prop.getProperty("browser").equalsIgnoreCase("linux")) 
 		{
 			System.setProperty("webdriver.chrome.driver","/var/lib/jenkins/workspace/selenium_poc/drivers/linux/chromedriver.exe");
